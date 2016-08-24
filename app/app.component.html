@@ -1,0 +1,29 @@
+<div class="jumbotron text-center">
+    <h1>Task Driven Example</h1>
+    <p class="description">This page is rendered entirely using bootstrap</p>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <h3>Create a task from modal</h3>
+            <button type="button" class="btn btn-default" (click)="modal.open()">Create new task</button>
+
+            <modal #modal [showClose]="true" [title]="heading">
+                <modal-header [show-close]="true">
+
+                </modal-header>
+                <modal-body>
+                    <task-item [taskItemToWatch]="firstTaskItem"></task-item>
+                </modal-body>
+                <modal-footer [show-default-buttons]="false">
+
+                </modal-footer>
+            </modal>
+        </div>
+        <div class="col-sm-4">
+            <h3>Tasks Created</h3>
+            <task-item [taskItemToWatch]="firstTaskItem"></task-item>
+            <task-item [taskItemToWatch]="firstTaskItem"></task-item>
+        </div>
+    </div>
+</div>

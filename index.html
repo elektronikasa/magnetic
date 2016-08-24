@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <title>MeWL</title>
+    <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+
+    <script src="node_modules/jquery/dist/jquery-1.12.3.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+    <link href="resets.css" rel="stylesheet">
+
+    <script>
+        System.config({
+        packages: {        
+          app: {
+            format: 'register',
+            defaultExtension: 'js'
+          }
+        }
+      });
+      System.import('app/main')
+            .then(null, console.error.bind(console));
+    </script>
+</head>
+
+<body>
+    <event-demo-app>Loading...</event-demo-app>
+</body>
+
+</html>

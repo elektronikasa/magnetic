@@ -1,0 +1,124 @@
+<form>
+    <fieldset class="form-group">
+        <label for="taskName">Task Name</label>
+        <textarea class="form-control" id="taskName" rows="1">{{taskItem.name}}</textarea>
+    </fieldset>
+    <fieldset class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" rows="3">{{taskItem.description}}</textarea>
+    </fieldset>
+    <table width="100%">
+        <tr>
+            <td width="50%">
+                <fieldset class="form-group">
+                    <label for="owner">Owner</label>
+                    <select class="form-control" id="owner" [(ngModel)]="taskItem.owner" ngControl="type"  >
+                        <option *ngFor="#type of taskItem.owners" [value]="type">{{type}}</option>
+                    </select>
+
+                </fieldset>
+            </td>
+            <td>
+                <fieldset class="form-group">
+
+                        <label >
+                            <input type="checkbox" checked="{{taskItem.notify}}"> Notify
+                        </label>
+
+
+                    <select class="form-control" id="owner1" [(ngModel)]="taskItem.owner1" ngControl="type"  >
+                        <option *ngFor="#type of taskItem.owners" [value]="type">{{type}}</option>
+                    </select>
+                </fieldset>
+            </td>
+        </tr>
+    </table>
+    <fieldset class="form-group text-right">
+        <div>
+            <label>Watchers</label>
+        </div>
+         <span class="tag label label-info" *ngFor="#type of taskItem.watchers">
+              <span>{{type}}</span>
+              <a><i class="remove glyphicon glyphicon-remove-sign glyphicon-white"></i></a>
+         </span>
+    </fieldset>
+    <fieldset class="form-group">
+        <input type="text" class="form-control" id="opportunity" placeholder="Select opportunity or create new opportunity" value="{{taskItem.opertunity}}">
+    </fieldset>
+    <table width="100%">
+        <tr>
+            <td width="50%">
+                <fieldset class="form-group">
+                    <input type="datetime" class="form-control" id="start_date" placeholder="Start Date" value="{{taskItem.startDate | date: 'ddMMyyyy'}}">
+                </fieldset>
+            </td>
+            <td>
+                    <fieldset class="form-group">
+                        <input type="datetime" class="form-control" id="end_date" placeholder="End Date" value="{{taskItem.endDate | date: 'ddMMyyyy'}}">
+                    </fieldset>
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%">
+        <tr>
+            <td width="25%">
+                <fieldset class="form-group">
+                    <label for="estHrs">Estimated Effort</label>
+                    <input type="number" class="form-control" id="estHrs" placeholder="Hours" value="{{taskItem.estEffortHrs}}">
+                </fieldset>
+            </td>
+            <td width="25%">
+                <fieldset class="form-group">
+                    <label for="estMin">. </label>
+                    <input type="number" class="form-control" id="estMin" placeholder="Minutes" value="{{taskItem.estEffortMin}}">
+                </fieldset>
+            </td>
+            <td width="25%">
+                <fieldset class="form-group">
+                    <label for="trackHrs">Tracked Effort</label>
+                        <input type="number" class="form-control" id="trackHrs" placeholder="Hours" value="{{taskItem.trEffortHrs}}">
+                    </fieldset>
+            </td>
+            <td width="25%">
+                <fieldset class="form-group">
+                    <label for="trackMin">. </label>
+                    <input type="number" class="form-control" id="trackMin" placeholder="Minutes" value="{{taskItem.trEffortMin}}">
+                </fieldset>
+            </td>
+        </tr>
+    </table>
+    <table width="100%">
+        <tr>
+            <td width="35%">
+           <fieldset class="form-group">
+                <label for="status">Status</label>
+               <select class="form-control" id="status" [(ngModel)]="taskItem.status" ngControl="type"  >
+                   <option *ngFor="#type of taskItem.statusTypes" [value]="type">{{type}}</option>
+               </select>
+            </fieldset>
+            </td>
+            <td width="15%">
+                <label >
+                    <input type="checkbox" checked="{{taskItem.billable}}"> Billible
+                </label>
+            </td>
+
+            <td width="50%">
+                <fieldset class="form-group">
+                    <label for="billRate">Billing Rate</label>
+                    <select class="form-control" id="billRate" [(ngModel)]="taskItem.billRate" ngControl="type"  >
+                        <option *ngFor="#type of taskItem.billRateTypes" [value]="type">{{type}}</option>
+                    </select>
+
+                </fieldset>
+            </td>
+        </tr>
+    </table>
+    <fieldset class="form-group">
+        <label for="tags">Tags</label>
+        <input type="text" class="form-control" id="tags" placeholder="" value="{{taskItem.tags}}">
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="reset" class="btn btn-warning">Cancel</button>
+</form>

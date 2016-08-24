@@ -1,0 +1,16 @@
+.modal-dialog
+{
+    opacity:1
+}
+.modal-backdrop
+{
+    opacity:0.5 !important;
+}
+.modal-header{
+    background: red;
+}
+.modal-title{
+    color: white;
+    text-shadow: 0px 2px 3px #666;
+    font-size: large;
+}
